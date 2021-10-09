@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import styled from "styled-components";
+import { data } from "./data";
+import Card from "./components/Card/card";
+import Box from "./components/Box/box";
+import Header from "./components/header";
 
-function App() {
+const CardsWrapper = styled.section`
+  margin: 2em auto;
+  display: grid;
+  gap: 20px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 1024px;
+  justify-items: center;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <CardsWrapper>
+        <Card card={data} />
+        <Box />
+      </CardsWrapper>
     </div>
   );
-}
+};
 
 export default App;
